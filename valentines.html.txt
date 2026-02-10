@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💌</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffd6e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+/* Envelope */
+#envelope {
+    width: 320px;
+    height: 220px;
+    background: #ff69b4;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 110px solid #ff85c1;
+}
+
+/* Paper */
+#paper {
+    position: absolute;
+    bottom: 20px;
+    width: 280px;
+    height: 360px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transform: translateY(200px);
+    transition: transform 1.5s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    display: none;
+}
+
+#paper.show {
+    transform: translateY(-260px);
+}
+
+#letter {
+    font-size: 16px;
+    color: #444;
+}
+
+/* Buttons */
+#buttons {
+    margin-top: 30px;
+    display: none;
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yes {
+    background: #ff69b4;
+    color: white;
+}
+
+#no {
+    background: #ccc;
+}
+
+/* Celebration */
+#celebrate {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#celebrate h1 {
+    color: #ff1493;
+    font-size: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="envelope">
+    💌 Tap Me 💌
+</div>
+
+<div id="paper">
+    <div id="letter">
+        Hi my love, Happy Valentine's Day. 💖<br><br>
+        I just want to say that you're the most beautiful girl and I am lucky to be loved by someone like you.<br><br>
+        Will you be my Valentine my love?
+    </div>
+
+    <div id="buttons">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+</div>
+
+<div id="celebrate">
+    <h1>Yeheyyyy 🐶💃</h1>
+    <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" width="300">
+</div>
+
+<script>
+const envelope = document.getElementById("envelope");
+const paper = document.getElementById("paper");
+const buttons = document.getElementById("buttons");
+const celebrate = document.getElementById("celebrate");
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+
+envelope.onclick = () => {
+    envelope.style.display = "none";
+    paper.style.display = "block";
+
+    setTimeout(() => {
+        paper.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+        buttons.style.display = "block";
+    }, 5000);
+};
+
+yesBtn.onclick = () => {
+    paper.style.display = "none";
+    celebrate.style.display = "flex";
+};
+
+noBtn.onclick = () => {
+    alert("Oopps, Try again 😜");
+};
+</script>
+
+</body>
+</html>
